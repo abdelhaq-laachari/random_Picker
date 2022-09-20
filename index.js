@@ -1,7 +1,7 @@
 let btnRandom = document.querySelector("button");
 // let result = document.querySelector("h2");
 
-let users = [
+let student = [
   "Marks",
   "Kamal",
   "Abdelhaq",
@@ -12,13 +12,35 @@ let users = [
   "Ahmed",
 ];
 
+let topics = [
+  "Topic 1",
+  "Topic 2",
+  "Topic 3",
+  "Topic 4",
+  "Topic 5",
+  "Topic 6",
+  "Topic 7",
+  "Topic 8",
+];
+
 // here i will try to map on json file
-// document.getElementById("allStudents").innerHTML = users;
+document.getElementById("allStudents").innerHTML = student;
+document.getElementById("allTopics").innerHTML = topics;
 
+let selectedStudent = [];
+let selectedTopics = [];
 
-let selectedUsers = [];
+// function for select random student
+function getRandomStudent(min, max) {
+  let step1 = max - min + 1;
+  let step2 = Math.random() * step1;
+  let step3 = Math.floor(step2);
 
-function getRandomUsers(min, max) {
+  return step3;
+}
+
+// function for select random topic
+function getRandomTopic(min, max) {
   let step1 = max - min + 1;
   let step2 = Math.random() * step1;
   let step3 = Math.floor(step2);
@@ -27,21 +49,42 @@ function getRandomUsers(min, max) {
 }
 
 btnRandom.addEventListener("click", () => {
-  let index = getRandomUsers(0, users.length - 1);
-  //   result.innerText = users[index];
+  //   student selected
+  let oneStudent = getRandomStudent(0, student.length - 1);
+  //   topic selected
+  let oneTopic = getRandomTopic(0, topics.length - 1);
 
-  if (users.length > 0) {
-    selectedUsers.push(users[index]);
+  //   push student to new array
+  if (student.length > 0) {
+    selectedStudent.push(student[oneStudent]);
   } else {
     console.log("stop");
   }
 
-  if (users.length > 0) {
-    let newUsers = users.splice(users.indexOf(users[index]), 1);
-    document.getElementById("allStudents").innerHTML = users;
+  //   push topics to new array
+  if (topics.length > 0) {
+    selectedTopics.push(topics[oneTopic]);
+  } else {
+    console.log("stop");
+  }
+
+//   remove selected students from old array
+  if (student.length > 0) {
+    let newStudent = student.splice(student.indexOf(student[oneStudent]), 1);
+    document.getElementById("allStudents").innerHTML = student;
   } else {
     let message = "no student left";
     document.getElementById("allStudents").innerHTML = message;
   }
-  document.getElementById("rStudents").innerHTML = selectedUsers;
+  document.getElementById("rStudents").innerHTML = selectedStudent;
+
+//   remove selected topics from old array
+  if (topics.length > 0) {
+    let newTopic = topics.splice(topics.indexOf(topics[oneTopic]), 1);
+    document.getElementById("allTopics").innerHTML = topics;
+  } else {
+    let message = "no topics left";
+    document.getElementById("allTopics").innerHTML = message;
+  }
+  document.getElementById("rTopics").innerHTML = selectedTopics;
 });
