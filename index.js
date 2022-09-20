@@ -12,7 +12,9 @@ let users = [
   "Ahmed",
 ];
 
-document.getElementById("allStudents").innerHTML = users;
+// here i will try to map on json file
+// document.getElementById("allStudents").innerHTML = users;
+
 
 let selectedUsers = [];
 
@@ -26,25 +28,20 @@ function getRandomUsers(min, max) {
 
 btnRandom.addEventListener("click", () => {
   let index = getRandomUsers(0, users.length - 1);
-//   result.innerText = users[index];
+  //   result.innerText = users[index];
 
-  if(users.length > 0){
+  if (users.length > 0) {
     selectedUsers.push(users[index]);
+  } else {
+    console.log("stop");
   }
-
-  console.log(users[index]);
 
   if (users.length > 0) {
     let newUsers = users.splice(users.indexOf(users[index]), 1);
-
-    console.log(users);
     document.getElementById("allStudents").innerHTML = users;
-    console.log(selectedUsers);
-  }else if(users.length <= 0) {
-    let message = "no student left"
+  } else {
+    let message = "no student left";
     document.getElementById("allStudents").innerHTML = message;
   }
   document.getElementById("rStudents").innerHTML = selectedUsers;
 });
-
-
