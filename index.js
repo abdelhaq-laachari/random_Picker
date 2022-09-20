@@ -25,9 +25,6 @@ function getRandomUsers(min, max) {
 }
 
 btnRandom.addEventListener("click", () => {
-
-  console.log(users);
-
   let index = getRandomUsers(0, users.length - 1);
   result.innerText = users[index];
 
@@ -35,10 +32,15 @@ btnRandom.addEventListener("click", () => {
 
   console.log(users[index]);
 
-  users.splice(users.indexOf(users[index]), 1);
+  if (users.length > 0) {
+    let newUsers = users.splice(users.indexOf(users[index]), 1);
 
-  console.log(selectedUsers);
+    console.log(users);
+    document.getElementById("allStudents").innerHTML = users;
+    console.log(selectedUsers);
+  }else{
+    console.log("there is no student left")
+  }
 });
-
 
 document.getElementById("rStudents").innerHTML = selectedUsers;
