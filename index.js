@@ -1,5 +1,5 @@
 let btnRandom = document.querySelector("button");
-let result = document.querySelector("h2");
+// let result = document.querySelector("h2");
 
 let users = [
   "Marks",
@@ -26,9 +26,11 @@ function getRandomUsers(min, max) {
 
 btnRandom.addEventListener("click", () => {
   let index = getRandomUsers(0, users.length - 1);
-  result.innerText = users[index];
+//   result.innerText = users[index];
 
-  selectedUsers.push(users[index]);
+  if(users.length > 0){
+    selectedUsers.push(users[index]);
+  }
 
   console.log(users[index]);
 
@@ -38,9 +40,11 @@ btnRandom.addEventListener("click", () => {
     console.log(users);
     document.getElementById("allStudents").innerHTML = users;
     console.log(selectedUsers);
-  }else{
-    console.log("there is no student left")
+  }else if(users.length <= 0) {
+    let message = "no student left"
+    document.getElementById("allStudents").innerHTML = message;
   }
+  document.getElementById("rStudents").innerHTML = selectedUsers;
 });
 
-document.getElementById("rStudents").innerHTML = selectedUsers;
+
