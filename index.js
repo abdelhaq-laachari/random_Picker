@@ -9,8 +9,10 @@ let users = [
   "Amine",
   "Mehdi",
   "Mohammed",
-  "Mehdi",
+  "Ahmed",
 ];
+
+document.getElementById("allStudents").innerHTML = users;
 
 let selectedUsers = [];
 
@@ -22,20 +24,21 @@ function getRandomNumber(min, max) {
   return step3;
 }
 
-
 btnRandom.addEventListener("click", () => {
+
+  console.log(users);
+
   let index = getRandomNumber(0, users.length - 1);
   result.innerText = users[index];
-  console.log(index);
 
-  removeStudent(index);
-  console.log(users.length);
+  selectedUsers.push(users[index]);
+
+  console.log(users[index]);
+
+  users.splice(users.indexOf(users[index]), 1);
+
+  console.log(selectedUsers);
 });
 
-function removeStudent(student) {
-  users.splice(users.indexOf(student), 1);
-}
 
-function studentResult(){
-    
-}
+document.getElementById("rStudents").innerHTML = selectedUsers;
