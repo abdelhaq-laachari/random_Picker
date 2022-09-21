@@ -65,7 +65,7 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
     console.log("stop");
   }
   // remove selected element from old array
-  if (arrayName.length > 1) {
+  if (arrayName.length > 0) {
     let newArray = arrayName.splice(
       arrayName.indexOf(arrayName[oneSelected]),
       1
