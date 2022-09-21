@@ -59,7 +59,7 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
   // get number of selected element from the array
   let oneSelected = getRandomElement(0, arrayName.length - 1);
   // push selected element to new array
-  if (arrayName.length > 0) {
+  if (arrayName.length > 1) {
     selectedArray.push(arrayName[oneSelected]);
   } else {
     console.log("stop");
@@ -77,3 +77,5 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
   }
   document.getElementById(arrayResult).innerHTML = selectedArray;
 }
+
+
