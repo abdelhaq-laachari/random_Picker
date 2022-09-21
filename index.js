@@ -1,6 +1,7 @@
 let btnRandom = document.querySelector("button");
 // let result = document.querySelector("h2");
 
+
 let student = [
   "Marks",
   "Kamal",
@@ -50,41 +51,63 @@ function getRandomTopic(min, max) {
 
 btnRandom.addEventListener("click", () => {
   //   student selected
-  let oneStudent = getRandomStudent(0, student.length - 1);
-  //   topic selected
-  let oneTopic = getRandomTopic(0, topics.length - 1);
+  // let oneStudent = getRandomStudent(0, student.length - 1);
+  // //   topic selected
+  // let oneTopic = getRandomTopic(0, topics.length - 1);
+  // console.log(oneTopic)
 
-  //   push student to new array
-  if (student.length > 0) {
-    selectedStudent.push(student[oneStudent]);
-  } else {
-    console.log("stop");
-  }
+  // //   push student to new array
+  // if (student.length > 0) {
+  //   selectedStudent.push(student[oneStudent]);
+  // } else {
+  //   console.log("stop");
+  // }
 
   //   push topics to new array
-  if (topics.length > 0) {
-    selectedTopics.push(topics[oneTopic]);
+  // if (topics.length > 0) {
+  //   selectedTopics.push(topics[oneTopic]);
+  // } else {
+  //   console.log("stop");
+  // }
+
+    // remove selected students from old array
+  // if (student.length > 0) {
+  //   let newStudent = student.splice(student.indexOf(student[oneStudent]), 1);
+  //   document.getElementById("allStudents").innerHTML = student;
+  // } else {
+  //   let message = "no student left";
+  //   document.getElementById("allStudents").innerHTML = message;
+  // }
+  // document.getElementById("rStudents").innerHTML = selectedStudent;
+
+  //   remove selected topics from old array
+  removeSelectedElement(student,"allStudents","rStudents",selectedStudent)
+  removeSelectedElement(topics,"allTopics","rTopics",selectedTopics)
+
+//   if (topics.length > 0) {
+//     let newTopic = topics.splice(topics.indexOf(topics[oneTopic]), 1);
+//     document.getElementById("allTopics").innerHTML = topics;
+//   } else {
+//     let message = "no topics left";
+//     document.getElementById("allTopics").innerHTML = message;
+//   }
+//   document.getElementById("rTopics").innerHTML = selectedTopics;
+});
+
+function removeSelectedElement(arrayName,arrayId,arrayResult,selectedArray){
+  let oneSelected = getRandomTopic(0, arrayName.length - 1);
+  if (arrayName.length > 0) {
+    selectedArray.push(arrayName[oneSelected]);
   } else {
     console.log("stop");
   }
-
-//   remove selected students from old array
-  if (student.length > 0) {
-    let newStudent = student.splice(student.indexOf(student[oneStudent]), 1);
-    document.getElementById("allStudents").innerHTML = student;
-  } else {
-    let message = "no student left";
-    document.getElementById("allStudents").innerHTML = message;
-  }
-  document.getElementById("rStudents").innerHTML = selectedStudent;
-
-//   remove selected topics from old array
-  if (topics.length > 0) {
-    let newTopic = topics.splice(topics.indexOf(topics[oneTopic]), 1);
-    document.getElementById("allTopics").innerHTML = topics;
+  if (arrayName.length > 0) {
+    let newArray = arrayName.splice(arrayName.indexOf(arrayName[oneSelected]), 1);
+    document.getElementById(arrayId).innerHTML = arrayName;
   } else {
     let message = "no topics left";
-    document.getElementById("allTopics").innerHTML = message;
+    document.getElementById(arrayId).innerHTML = message;
   }
-  document.getElementById("rTopics").innerHTML = selectedTopics;
-});
+  document.getElementById(arrayResult).innerHTML = selectedArray;
+}
+
