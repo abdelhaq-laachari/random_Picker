@@ -1,7 +1,6 @@
 let btnRandom = document.querySelector("button");
 // let result = document.querySelector("h2");
 
-
 let student = [
   "Marks",
   "Kamal",
@@ -11,6 +10,10 @@ let student = [
   "Mehdi",
   "Mohammed",
   "Ahmed",
+  "Ismail",
+  "Brahim",
+  "Kasan",
+  "Boutfli9a"
 ];
 
 let topics = [
@@ -22,6 +25,10 @@ let topics = [
   "Topic 6",
   "Topic 7",
   "Topic 8",
+  "Topic 9",
+  "Topic 10",
+  "Topic 11",
+  "Topic 12",
 ];
 
 // here i will try to map on json file
@@ -31,17 +38,9 @@ document.getElementById("allTopics").innerHTML = topics;
 let selectedStudent = [];
 let selectedTopics = [];
 
-// function for select random student
-function getRandomStudent(min, max) {
-  let step1 = max - min + 1;
-  let step2 = Math.random() * step1;
-  let step3 = Math.floor(step2);
-
-  return step3;
-}
 
 // function for select random topic
-function getRandomTopic(min, max) {
+function getRandomElement(min, max) {
   let step1 = max - min + 1;
   let step2 = Math.random() * step1;
   let step3 = Math.floor(step2);
@@ -50,64 +49,31 @@ function getRandomTopic(min, max) {
 }
 
 btnRandom.addEventListener("click", () => {
-  //   student selected
-  // let oneStudent = getRandomStudent(0, student.length - 1);
-  // //   topic selected
-  // let oneTopic = getRandomTopic(0, topics.length - 1);
-  // console.log(oneTopic)
-
-  // //   push student to new array
-  // if (student.length > 0) {
-  //   selectedStudent.push(student[oneStudent]);
-  // } else {
-  //   console.log("stop");
-  // }
-
-  //   push topics to new array
-  // if (topics.length > 0) {
-  //   selectedTopics.push(topics[oneTopic]);
-  // } else {
-  //   console.log("stop");
-  // }
-
-    // remove selected students from old array
-  // if (student.length > 0) {
-  //   let newStudent = student.splice(student.indexOf(student[oneStudent]), 1);
-  //   document.getElementById("allStudents").innerHTML = student;
-  // } else {
-  //   let message = "no student left";
-  //   document.getElementById("allStudents").innerHTML = message;
-  // }
-  // document.getElementById("rStudents").innerHTML = selectedStudent;
-
+  //   remove selected students from old array
+  removeSelectedElement(student, "allStudents", "rStudents", selectedStudent);
   //   remove selected topics from old array
-  removeSelectedElement(student,"allStudents","rStudents",selectedStudent)
-  removeSelectedElement(topics,"allTopics","rTopics",selectedTopics)
-
-//   if (topics.length > 0) {
-//     let newTopic = topics.splice(topics.indexOf(topics[oneTopic]), 1);
-//     document.getElementById("allTopics").innerHTML = topics;
-//   } else {
-//     let message = "no topics left";
-//     document.getElementById("allTopics").innerHTML = message;
-//   }
-//   document.getElementById("rTopics").innerHTML = selectedTopics;
+  removeSelectedElement(topics, "allTopics", "rTopics", selectedTopics);
 });
 
-function removeSelectedElement(arrayName,arrayId,arrayResult,selectedArray){
-  let oneSelected = getRandomTopic(0, arrayName.length - 1);
+function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
+  // get number of selected element from the array
+  let oneSelected = getRandomElement(0, arrayName.length - 1);
+  // push selected element to new array
   if (arrayName.length > 0) {
     selectedArray.push(arrayName[oneSelected]);
   } else {
     console.log("stop");
   }
-  if (arrayName.length > 0) {
-    let newArray = arrayName.splice(arrayName.indexOf(arrayName[oneSelected]), 1);
+  // remove selected element from old array
+  if (arrayName.length > 1) {
+    let newArray = arrayName.splice(
+      arrayName.indexOf(arrayName[oneSelected]),
+      1
+    );
     document.getElementById(arrayId).innerHTML = arrayName;
   } else {
-    let message = "no topics left";
+    let message = "nothing is left";
     document.getElementById(arrayId).innerHTML = message;
   }
   document.getElementById(arrayResult).innerHTML = selectedArray;
 }
-
