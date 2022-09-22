@@ -20,7 +20,7 @@ let student = [
   "El bassri",
   "Hassan 2",
 ];
-console.log(student)
+
 
 let topics = [
   "Topic 1",
@@ -41,7 +41,7 @@ let topics = [
   "Topic 16",
   "Topic 17",
 ];
-console.log(topics)
+
 
 // print array element in view
 function printedName(tableName, tableId) {
@@ -95,3 +95,25 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
   console.log(finalResult);
   document.getElementById(arrayResult).innerHTML = finalResult;
 }
+
+
+/* export Excel file */
+const downloadCSV = () => {
+
+  var csv = 'id,Name,Subject,date\n';
+  newArr = []
+  resultListArr.map((e) => newArr.push(Object.values(e)));
+  newArr.forEach(function (row) {
+    csv += row.join(',');
+    csv += "\n";
+  });
+
+  var hiddenElement = document.createElement('a');
+  hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
+  hiddenElement.target = '_blank';
+
+  //provide the name for the CSV file to be downloaded  
+  hiddenElement.download = 'Organisation des sujets de veilles.csv';
+  hiddenElement.click();
+
+};

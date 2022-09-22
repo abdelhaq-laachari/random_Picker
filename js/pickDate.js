@@ -3,6 +3,7 @@ var btn = document.getElementById("btn");
 function getDatesInRange(startDate) {
   const date = new Date(startDate.getTime());
 
+  // array for pushed dates
   const dates = [];
 
   // put date in array and make a condition if this date in the array skipped
@@ -25,7 +26,6 @@ function getDatesInRange(startDate) {
       var finalDate =
         ss.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
       // push the date to an array called dates
-      // console.log("date two : " + finalDate);
       dates.push(finalDate);
       printedName(dates,"rDate")
       // document.getElementById("rDate").innerHTML = dates;
@@ -48,10 +48,10 @@ function getDatesInRange(startDate) {
   return dates;
 }
 
+// 
 var today = new Date();
 var current_date =
   today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-
 const d1 = new Date(current_date);
 getDatesInRange(d1)
 
