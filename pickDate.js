@@ -11,30 +11,27 @@ function getDatesInRange(startDate) {
     // make a condition to skipped the weekend
     if (dayName != "Fri" && student.length > 0) {
       // add new day after every pick
-      var test = date.setDate(date.getDate() + 2);  // here where i stop because i need to know why test and ss are different
-      console.log(new Date(test))
+      var test = date.setDate(date.getDate() + 1);
+      console.log("date one : " + new Date(test));
       // change date to this format : yy-mm-dd
-      var ss = new Date(test)
-        .toISOString()
-        .replace("-", "/")
-        .split("T")[0]
-        .replace("-", "/");
+      var ss = new Date(test);
+      var finalDate =
+        ss.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
       // push the date to an array called dates
-      console.log(ss)
-      dates.push(ss);
+      console.log("date two : " + finalDate);
+      dates.push(finalDate);
       document.getElementById("rDate").innerHTML = dates;
     }
     // if friday day pass weekends day
     else if (dayName == "Fri") {
       var test = date.setDate(date.getDate() + 3);
       // change date to this format : yy-mm-dd
-      var ss = new Date(test)
-        .toISOString()
-        .replace("-", "/")
-        .split("T")[0]
-        .replace("-", "/");
+      var ss = new Date(test);
+      var finalDate =
+        ss.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
       // push the date to an array called dates
-      dates.push(ss);
+      console.log("date two : " + finalDate);
+      dates.push(finalDate);
       document.getElementById("rDate").innerHTML = dates;
     } else {
       console.log("stop please");
