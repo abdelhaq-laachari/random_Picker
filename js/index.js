@@ -21,7 +21,6 @@ let student = [
   "Hassan 2",
 ];
 
-
 let topics = [
   "Topic 1",
   "Topic 2",
@@ -43,17 +42,6 @@ let topics = [
 ];
 
 
-// print array element in view
-function printedName(tableName, tableId) {
-  let printedTable = tableName.join(" " + "<br/>");
-  document.getElementById(tableId).innerHTML = printedTable;
-}
-printedName(student,"allStudents")
-printedName(topics,"allTopics")
-
-let selectedStudent = [];
-let selectedTopics = [];
-
 // function for select random topic
 function getRandomElement(min, max) {
   let step1 = max - min + 1;
@@ -63,6 +51,19 @@ function getRandomElement(min, max) {
   return step3;
 }
 
+// print array element in view
+function printedName(tableName, tableId) {
+  let printedTable = tableName.join(" " + "<br/>");
+  document.getElementById(tableId).innerHTML = printedTable;
+}
+printedName(student, "allStudents");
+printedName(topics, "allTopics");
+
+let selectedStudent = [];
+let selectedTopics = [];
+let dates = getDatesInRange(d1) ;
+
+// button for pick a random element
 btnRandom.addEventListener("click", () => {
   //   remove selected students from old array
   removeSelectedElement(student, "allStudents", "rStudents", selectedStudent);
@@ -70,6 +71,7 @@ btnRandom.addEventListener("click", () => {
   removeSelectedElement(topics, "allTopics", "rTopics", selectedTopics);
 });
 
+// function for remove selected element
 function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
   // get number of selected element from the array
   let oneSelected = getRandomElement(0, arrayName.length - 1);
@@ -86,7 +88,7 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
       1
     );
     document.getElementById(arrayId).innerHTML = arrayName;
-    printedName(arrayName,arrayId)
+    printedName(arrayName, arrayId);
   } else {
     let message = "nothing is left";
     document.getElementById(arrayId).innerHTML = message;
@@ -96,24 +98,58 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
   document.getElementById(arrayResult).innerHTML = finalResult;
 }
 
+var download = document.getElementById("download");
+download.addEventListener("click", () => {
+  saveCSV();
+  console.log("test");
+  // console.log(rows);
+});
+
+function saveCSV() {
+  // (A) ARRAY OF DATA
+  var array = [
+    selectedStudent,
+    selectedTopics,
+    dates
+  ];
+
+  // (B) ARRAY TO CSV STRING
+  var csv = "";
+  for (let row of array) {
+    for (let col of row) {
+      csv += col + "        ";
+    }
+    csv += "\r            \n";
+  }
+
+  // (C) CREATE BLOB OBJECT
+  var myBlob = new Blob([csv], { type: "text/csv" });
+
+  // (D) CREATE DOWNLOAD LINK
+  var url = window.URL.createObjectURL(myBlob);
+  var anchor = document.createElement("a");
+  anchor.href = url;
+  anchor.download = "demo.csv";
+  anchor.click();
+  window.URL.revokeObjectURL(url);
+  anchor.remove();
+}
 
 /* export Excel file */
-const downloadCSV = () => {
+// const downloadCSV = () => {
+//   var csv = "id,Name,Subject,date\n";
+//   newArr = [];
+//   resultListArr.map((e) => newArr.push(Object.values(e)));
+//   newArr.forEach(function (row) {
+//     csv += row.join(",");
+//     csv += "\n";
+//   });
 
-  var csv = 'id,Name,Subject,date\n';
-  newArr = []
-  resultListArr.map((e) => newArr.push(Object.values(e)));
-  newArr.forEach(function (row) {
-    csv += row.join(',');
-    csv += "\n";
-  });
+//   var hiddenElement = document.createElement("a");
+//   hiddenElement.href = "data:text/csv;charset=utf-8," + encodeURI(csv);
+//   hiddenElement.target = "_blank";
 
-  var hiddenElement = document.createElement('a');
-  hiddenElement.href = 'data:text/csv;charset=utf-8,' + encodeURI(csv);
-  hiddenElement.target = '_blank';
-
-  //provide the name for the CSV file to be downloaded  
-  hiddenElement.download = 'Organisation des sujets de veilles.csv';
-  hiddenElement.click();
-
-};
+//   //provide the name for the CSV file to be downloaded
+//   hiddenElement.download = "Organisation des sujets de veilles.csv";
+//   hiddenElement.click();
+// };

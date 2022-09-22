@@ -45,7 +45,7 @@ h1 {
   -moz-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
   border-radius: 5px;
 }
-.columnTwo button {
+button {
   background-color: #ea4c89;
   border-radius: 8px;
   border-style: none;
@@ -73,7 +73,7 @@ h1 {
   touch-action: manipulation;
 }
 
-.columnTwo button:hover {
+button:hover {
   background-color: #f082ac;
 }
 .columnThree {
