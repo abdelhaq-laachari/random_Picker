@@ -19,11 +19,11 @@ Travail Inviduel, Date fin est 26/09/2022 (6 jour)
 ```
 Modalités d'évaluation
 ```
-## How to run this project
+<!-- ## How to run this project
 ```
 Use this command to install the necessary dependencies and Enjoy 
 
-1 . npm install
+1 . npm install -->
 ```
 <!-- ## Simulation -->
 
