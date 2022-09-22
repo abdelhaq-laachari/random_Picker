@@ -1,3 +1,95 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+  background: #f8f8f8;
+}
+.section {
+  width: 90%;
+  height: 100vh;
+  /* margin: auto; */
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+}
+.columnOne {
+  display: flex;
+  gap: 1rem;
+  background: #fff;
+  border-radius: 5px;
+  padding: 1rem;
+  box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+}
+h1 {
+  font-size: 1.5rem;
+  font-family: "poppins";
+  font-weight: 500;
+}
+.columnTwo {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  border-radius: 5px;
+}
+.columnTwo button {
+  background-color: #ea4c89;
+  border-radius: 8px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  height: 40px;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  outline: none;
+  padding: 10px 16px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  vertical-align: baseline;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.columnTwo button:hover {
+  background-color: #f082ac;
+}
+.columnThree {
+  background-color: #fff;
+  padding: 1rem;
+  box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  -webkit-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  -moz-box-shadow: 2px 5px 18px 6px rgba(0, 0, 0, 0.36);
+  border-radius: 5px;
+}
+.list {
+  display: flex;
+  gap: 1rem;
+}
+span {
+  font-size: 1.2rem;
+  font-weight: 300;
+  font-family: "Courier New";
+}

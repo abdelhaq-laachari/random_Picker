@@ -7,17 +7,23 @@
   <body>
     <div class="flex flex-col w-screen h-screen bg-slate-300">
       <div class="flex w-screen p-3 justify-around">
-        <div class="names">
+        <div class="names" id="studentList">
           <h1>hello</h1>
         </div>
-        <button class="bg-blue-500 hover:bg-blue-700 w-max h-max text-white font-bold py-2 px-4 rounded" id="btn">Pick a number</button>
-        <div class="names">
+        <button
+          class="bg-blue-500 hover:bg-blue-700 w-max h-max text-white font-bold py-2 px-4 rounded"
+          id="btn"
+        >
+          Pick a number
+        </button>
+        <div class="names" id="topicsList">
           <h1>hello 2</h1>
         </div>
       </div>
+      <h2 class="text-xl font-semibold text-blue-700" id="allResult"></h2>
     </div>
   </body>
   <script src="../js/index.js"></script>
-  <script src="../js/pickDate.js"></script>
+  <!-- <script src="../js/pickDate.js"></script> -->
   <script src="https://cdn.tailwindcss.com"></script>
 </html>

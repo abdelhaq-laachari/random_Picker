@@ -5,6 +5,14 @@ function getDatesInRange(startDate) {
 
   const dates = [];
 
+  // put date in array and make a condition if this date in the array skipped
+
+  function printedName(tableName, tableId) {
+    let printedTable = tableName.join(" " + "<br/>");
+    document.getElementById(tableId).innerHTML = printedTable;
+  }
+  // printedName(student,"allStudents")
+
   btn.addEventListener("click", () => {
     // get name of the day
     var dayName = date.toString().split(" ")[0];
@@ -12,17 +20,17 @@ function getDatesInRange(startDate) {
     if (dayName != "Fri" && student.length > 0) {
       // add new day after every pick
       var test = date.setDate(date.getDate() + 1);
-      console.log("date one : " + new Date(test));
       // change date to this format : yy-mm-dd
       var ss = new Date(test);
       var finalDate =
         ss.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
       // push the date to an array called dates
-      console.log("date two : " + finalDate);
+      // console.log("date two : " + finalDate);
       dates.push(finalDate);
-      document.getElementById("rDate").innerHTML = dates;
+      printedName(dates,"rDate")
+      // document.getElementById("rDate").innerHTML = dates;
     }
-    // if friday day pass weekends day
+    // if day day pass weekends day
     else if (dayName == "Fri") {
       var test = date.setDate(date.getDate() + 3);
       // change date to this format : yy-mm-dd
@@ -30,11 +38,10 @@ function getDatesInRange(startDate) {
       var finalDate =
         ss.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
       // push the date to an array called dates
-      console.log("date two : " + finalDate);
       dates.push(finalDate);
-      document.getElementById("rDate").innerHTML = dates;
+      printedName(dates,"rDate")
     } else {
-      console.log("stop please");
+      // console.log("stop please");
     }
   });
 
@@ -46,5 +53,5 @@ var current_date =
   today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
 
 const d1 = new Date(current_date);
+getDatesInRange(d1)
 
-console.log(getDatesInRange(d1));
