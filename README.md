@@ -27,5 +27,5 @@ Use this command to install the necessary dependencies and Enjoy
 ```
 ## Simulation
 
-![Animation](https://user-images.githubusercontent.com/77664568/143249113-4a2dac64-5932-40a8-ac2b-12c896f69f51.gif)
+<!-- ![Animation](https://user-images.githubusercontent.com/77664568/143249113-4a2dac64-5932-40a8-ac2b-12c896f69f51.gif) -->
 
