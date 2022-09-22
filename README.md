@@ -17,15 +17,11 @@ Travail Inviduel, Date fin est 26/09/2022 (6 jour)
 ```
 ## Critères de performance 
 ```
-Modalités d'évaluation
+Code exécutable avec explication de la solution
 ```
-<!-- ## How to run this project
-```
-Use this command to install the necessary dependencies and Enjoy 
 
-1 . npm install -->
+## Livrables
 ```
-<!-- ## Simulation -->
-
-<!-- ![Animation](https://user-images.githubusercontent.com/77664568/143249113-4a2dac64-5932-40a8-ac2b-12c896f69f51.gif) -->
+Lien github du projet
+```
 
