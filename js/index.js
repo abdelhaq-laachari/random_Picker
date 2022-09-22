@@ -31,7 +31,7 @@ let topics = [
   "Topic 12",
 ];
 
-// here i will try to map on json file
+// print array element in view 
 document.getElementById("allStudents").innerHTML = student;
 document.getElementById("allTopics").innerHTML = topics;
 
