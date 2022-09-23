@@ -92,17 +92,15 @@ function removeSelectedElement(arrayName, arrayId, arrayResult, selectedArray) {
   } else {
     let message = "nothing is left";
     document.getElementById(arrayId).innerHTML = message;
+    // Swal.fire("stop")
   }
   let finalResult = selectedArray.join(" " + "</br>");
-  console.log(finalResult);
   document.getElementById(arrayResult).innerHTML = finalResult;
 }
 
 var download = document.getElementById("download");
 download.addEventListener("click", () => {
   saveCSV();
-  console.log("test");
-  // console.log(rows);
 });
 
 function saveCSV() {
@@ -134,22 +132,3 @@ function saveCSV() {
   window.URL.revokeObjectURL(url);
   anchor.remove();
 }
-
-/* export Excel file */
-// const downloadCSV = () => {
-//   var csv = "id,Name,Subject,date\n";
-//   newArr = [];
-//   resultListArr.map((e) => newArr.push(Object.values(e)));
-//   newArr.forEach(function (row) {
-//     csv += row.join(",");
-//     csv += "\n";
-//   });
-
-//   var hiddenElement = document.createElement("a");
-//   hiddenElement.href = "data:text/csv;charset=utf-8," + encodeURI(csv);
-//   hiddenElement.target = "_blank";
-
-//   //provide the name for the CSV file to be downloaded
-//   hiddenElement.download = "Organisation des sujets de veilles.csv";
-//   hiddenElement.click();
-// };
