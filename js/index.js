@@ -69,6 +69,9 @@ btnRandom.addEventListener("click", () => {
   removeSelectedElement(student, "allStudents", "rStudents", selectedStudent);
   //   remove selected topics from old array
   removeSelectedElement(topics, "allTopics", "rTopics", selectedTopics);
+  if(selectedStudent.length > 0){
+    download.style.display = "block";
+  }
 });
 
 // function for remove selected element
@@ -102,6 +105,8 @@ var download = document.getElementById("download");
 download.addEventListener("click", () => {
   saveCSV();
 });
+
+
 
 function saveCSV() {
   // (A) ARRAY OF DATA
