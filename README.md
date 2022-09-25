@@ -25,6 +25,6 @@ Code exécutable avec explication de la solution
 Lien github du projet
 ```
 
-## Sumilation
+## Simulation
 
 <img src="./assets/img/simulation.gif"/>
