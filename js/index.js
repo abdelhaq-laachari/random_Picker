@@ -13,12 +13,12 @@ let student = [
   "Ismail",
   "Brahim",
   "Kasan",
-  "Ababou",
-  "Boumdin",
-  "Oufquir",
-  "Lmdbou7",
-  "El bassri",
-  "Hassan 2",
+  "Amir",
+  "Saad",
+  "Youness",
+  "Youssef",
+  "Ibrahim",
+  "Yassine",
 ];
 
 let topics = [
